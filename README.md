@@ -13,6 +13,7 @@ Sistema de cadastro de produtos desenvolvido em **Java 17**, com banco de dados 
 - `Produto.java` — menu e operações de cadastro, consulta, atualização e exclusão.
 - `Conexao.java` — conexão com o banco MySQL.
 - `pom.xml` — dependência do driver JDBC MySQL.
+- `banco.sql` — estrutura da tabela `produtos` no MySQL.
 
 ## Executar
 Importe a pasta `POOCRUDNUVEM` no Eclipse como **Existing Maven Projects** e utilize o Java 17.
