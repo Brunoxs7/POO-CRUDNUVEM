@@ -1,35 +1,69 @@
-# POO — CRUD na Nuvem (Java 17 + Railway MySQL)
+# POO — CRUD na Nuvem
 
-**Aluno:** Bruno de Souza Ribeiro — **RA:** 0024186
+**Aluno:** Bruno de Souza Ribeiro  
+**RA:** 0024186  
+**Disciplina:** Programação Orientada a Objetos (POO)
 
-Projeto acadêmico com menu no console e operações **CREATE, READ, UPDATE e DELETE** sobre produtos em banco de dados MySQL.
+## Sobre a atividade
 
-## Abrir no Eclipse
-1. Instale Java 17 e Maven (ou use Maven integrado do Eclipse).
-2. No Eclipse: **File > Import > Maven > Existing Maven Projects** e selecione a pasta `POOCRUDNUVEM` (que contém o `pom.xml`).
-3. O Maven baixa automaticamente o driver JDBC MySQL.
-4. Configure variáveis de ambiente na execução: **Run > Run Configurations > Java Application > Environment**.
+Neste trabalho, desenvolvi um programa em Java para realizar o cadastro e o gerenciamento de produtos. A ideia foi colocar em prática o conteúdo estudado em sala e entender melhor como um sistema pode guardar e consultar informações em um banco de dados.
 
-| Variável | Exemplo |
+O projeto utiliza o MySQL e foi preparado para se conectar a um banco hospedado no Railway. A interação é feita pelo console, com um menu simples para escolher as operações disponíveis.
+
+## O que o programa faz
+
+O sistema permite:
+- Cadastrar um produto, informando seu nome e preço;
+- Consultar a lista de produtos cadastrados ou pesquisar pelo ID;
+- Alterar os dados de um produto;
+- Excluir um produto pelo ID.
+
+Essas são as quatro operações básicas de um CRUD: **Create, Read, Update e Delete**. Os dados ficam na tabela `produtos`, que o próprio programa cria caso ainda não exista.
+
+## Tecnologias utilizadas
+
+- **Java 17:** desenvolvimento do programa;
+- **MySQL:** armazenamento dos produtos;
+- **Railway:** serviço previsto para hospedar o banco na nuvem;
+- **JDBC:** comunicação entre o Java e o banco;
+- **Maven:** gerenciamento da dependência do driver MySQL;
+- **Eclipse:** ambiente de desenvolvimento.
+
+## Como executar
+
+Para abrir o projeto no Eclipse:
+
+1. Baixe o repositório e extraia o arquivo ZIP.
+2. Entre em **File > Import > Maven > Existing Maven Projects**.
+3. Selecione a pasta `POOCRUDNUVEM`, onde está o arquivo `pom.xml`.
+4. Aguarde o Maven carregar a dependência do MySQL.
+5. Configure os dados de acesso ao banco nas variáveis de ambiente da execução.
+6. Execute a classe `Produto.java`.
+
+As variáveis usadas são:
+
+| Variável | Informação |
 |---|---|
-| `DB_URL` | `jdbc:mysql://HOST_PUBLICO:PORTA_PUBLICA/railway` |
-| `DB_USER` | `root` |
-| `DB_PASSWORD` | senha do serviço MySQL no Railway |
+| `DB_URL` | Endereço JDBC do MySQL |
+| `DB_USER` | Usuário do banco |
+| `DB_PASSWORD` | Senha do banco |
 
-Pode usar alternativamente `MYSQLHOST`, `MYSQLPORT`, `MYSQLDATABASE`, `MYSQLUSER` e `MYSQLPASSWORD`. Para executar no computador, utilize **endereço TCP público** do Railway, e não o endereço privado interno.
+No Railway, também é possível usar `MYSQLHOST`, `MYSQLPORT`, `MYSQLDATABASE`, `MYSQLUSER` e `MYSQLPASSWORD`. Para testar pelo Eclipse no próprio computador, é preciso usar o endereço e a porta públicos da conexão MySQL no Railway.
 
-**Nunca publique credenciais reais no GitHub.** O arquivo `.env.example` contém apenas valores ilustrativos.
+As senhas não foram incluídas no GitHub por segurança. O arquivo `.env.example` mostra apenas um exemplo de configuração.
 
-## Executar
-No diretório `POOCRUDNUVEM`:
+Também é possível executar na pasta do projeto pelo terminal, com Maven instalado:
 
 ```bash
 mvn compile exec:java
 ```
 
-Ou execute a classe `POOCRUDNUVEM.Produto` pelo Eclipse, após importar o projeto Maven e configurar as variáveis.
+## Organização do código
 
-A tabela `produtos` é criada automaticamente na primeira execução. O menu permite cadastrar, listar, pesquisar, atualizar e excluir produtos.
+A classe `Produto.java` contém o menu e as operações de cadastro, consulta, alteração e exclusão. A classe `Conexao.java` é responsável por abrir a conexão com o MySQL.
 
-## Status
-O código está configurado para usar o Railway, mas uma conexão real depende de um MySQL ativo na conta, rede habilitada e credenciais configuradas localmente. Não há credenciais no repositório.
+## Considerações finais
+
+Com essa atividade, pude trabalhar na prática com comandos SQL e integração de um programa Java com banco de dados. A proposta também ajuda a compreender como um sistema pode ser preparado para utilizar informações armazenadas na nuvem.
+
+**Observação:** o código já está preparado para usar o MySQL no Railway, mas a conexão real ainda precisa ser configurada e testada com as credenciais de um banco ativo.
